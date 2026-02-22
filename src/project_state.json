@@ -1,0 +1,244 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "AI-powered mobile video creation app that automatically generates short-form videos (Reels/Shorts/TikTok) from trending social media topics, with AI script generation, voiceover, auto-editing, and monetization features",
+  "architectural_notes": [
+    "Mobile app (iOS/Android)",
+    "AI script generation API integration required",
+    "Social media API integrations: YouTube, Instagram, X, Google Trends",
+    "Stock media library integration for videos and music",
+    "Text-to-speech API for AI voiceover (male/female voices)",
+    "Video rendering engine for automated editing, transitions, subtitles",
+    "Export pipeline supporting 9:16 aspect ratio and HD quality",
+    "Premium subscription and coin-based credit system",
+    "Ad network integration for free tier"
+  ],
+  "known_issues": [
+    "Trending topics page empty - fetching function not pulling live data from YouTube/Google"
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-create-a-dark-themed-landing-page-with-a-prominent-create-video-button-as-the-primary-call-to-action-using-a-modern-color-scheme-that-avoids-blue-and-purple-unless-specified",
+      "title": "Create a dark-themed landing page with a prominent 'Create Video' button as the primary call-to-action, using a modern color scheme that avoids blue and purple unless specified",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-trending-page-that-displays-fetched-trending-topics-organized-by-source-platform-youtube-instagram-x-google-trends-with-hashtags-and-viral-keywords-visible-featuring-a-fire-emoji-icon-or-visual-indicator-for-the-trending-section",
+      "title": "Create a Trending page that displays fetched trending topics organized by source platform (YouTube, Instagram, X, Google Trends) with hashtags and viral keywords visible, featuring a fire emoji icon or visual indicator for the trending section",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-template-library-page-that-displays-pre-configured-video-templates-for-users-to-browse-and-select",
+      "title": "Create a Template Library page that displays pre-configured video templates for users to browse and select",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-timeline-editor-interface-that-allows-users-to-view-and-arrange-video-components-stock-videos-music-text-animations-transitions-subtitles-on-a-visual-timeline",
+      "title": "Create a Timeline Editor interface that allows users to view and arrange video components (stock videos, music, text animations, transitions, subtitles) on a visual timeline",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-video-configuration-page-where-users-can-select-ai-voiceover-gender-male-female-choose-language-preference-hindi-english-adjust-script-style-emotional-dramatic-and-set-export-format-youtube-shorts-instagram-reels-tiktok",
+      "title": "Create a Video Configuration page where users can select AI voiceover gender (male/female), choose language preference (Hindi/English), adjust script style (emotional/dramatic), and set export format (YouTube Shorts/Instagram Reels/TikTok)",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-export-page-with-one-click-hd-export-functionality-displaying-watermark-status-based-on-subscription-tier-watermark-for-free-users-watermark-free-for-premium-and-showing-export-progress-during-rendering",
+      "title": "Create an Export page with one-click HD export functionality, displaying watermark status based on subscription tier (watermark for free users, watermark-free for premium), and showing export progress during rendering",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-user-account-page-displaying-current-subscription-tier-free-premium-coin-balance-and-render-usage-history-with-options-to-upgrade-subscription-or-purchase-additional-coins",
+      "title": "Create a User Account page displaying current subscription tier (Free/Premium), coin balance, and render usage history, with options to upgrade subscription or purchase additional coins",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-integrate-internet-identity-authentication-system-for-user-login-and-account-management",
+      "title": "Integrate Internet Identity authentication system for user login and account management",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-and-apply-a-creative-cohesive-visual-theme-across-all-pages-with-a-distinct-modern-dark-aesthetic-selecting-a-color-palette-that-avoids-blue-and-purple-choosing-typography-that-supports-both-english-and-hindi-content-and-creating-consistent-layout-patterns-that-emphasize-content-creation-workflows",
+      "title": "Design and apply a creative, cohesive visual theme across all pages with a distinct modern dark aesthetic, selecting a color palette that avoids blue and purple, choosing typography that supports both English and Hindi content, and creating consistent layout patterns that emphasize content creation workflows",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-videoconfigurationpage-frontend-to-enable-hindi-language-selection-for-script-generation-ensuring-the-generated-hindi-script-is-displayed-correctly-and-can-be-edited-before-creating-a-video-project",
+      "title": "Update the VideoConfigurationPage frontend to enable Hindi language selection for script generation, ensuring the generated Hindi script is displayed correctly and can be edited before creating a video project",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Trending topic fetcher from YouTube, Instagram, X, Google Trends with hashtags",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "AI script generator (30-60s, hook-driven, Hindi+English support)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Auto video creator with stock videos, music, animations, transitions, subtitles, AI voiceover",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Multi-format export (9:16 for Shorts/Reels/TikTok)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "One-click HD export with direct upload and optional watermark removal",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Dark theme UI with Create Video button, Trending tab, Template library, Timeline editor",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Monetization: Free with watermark, Premium subscription, Coin system, Ad integration",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Create a backend data model to store trending topics with fields: source platform (YouTube, Instagram, X/Twitter, Google Trends), topic text, hashtags array, viral keywords array, fetch timestamp, and engagement metrics",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Create a backend data model for video projects with fields: title, trending topic reference, script content, selected stock video IDs, background music ID, voiceover settings (male/female), subtitle configuration, format (YouTube Shorts/Instagram Reels/TikTok), watermark enabled boolean, created timestamp, and status (draft/rendering/completed)",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Create a backend data model for user accounts with fields: username, subscription tier (free/premium), coin balance, created date, and video render history",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Implement backend functions to create, read, update, and delete trending topics, with ability to filter by source platform and sort by engagement metrics",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Implement backend functions to generate AI scripts with parameters for topic input, language preference (Hindi/English/both), target duration (30-60 seconds), and storytelling style (emotional/dramatic), returning structured script with hook line and main content",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Implement backend functions to manage video projects: create new project from trending topic, update project configuration (stock videos, music, voiceover, subtitles), set export format (9:16 aspect ratio for YouTube Shorts/Instagram Reels/TikTok), and track rendering status",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Implement backend functions for user account management: create account, retrieve account details, upgrade subscription tier to premium, add/subtract coins from balance, and track render usage",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Generate AI script in Hindi for trending topics",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Implement a backend function to fetch live trending topics from YouTube API, storing results with platform identifier 'YouTube', topic text, hashtags array, viral keywords array, engagement metrics (views, likes, shares, comments), and fetch timestamp",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Implement a backend function to fetch live trending topics from Google Trends API, storing results with platform identifier 'Google Trends', topic text, hashtags array, viral keywords array, engagement metrics, and fetch timestamp",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-18",
+      "summary": "Update the TrendingPage frontend component to display fetched trending topics from YouTube and Google Trends platforms, ensuring topics are visible and properly organized by platform filter tabs",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-19",
+      "summary": "Enhance the backend AI script generation function to generate scripts in Hindi language when Hindi language preference is selected, maintaining hook-driven storytelling structure with 30-60 second target duration",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "AI Trending Video Maker",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

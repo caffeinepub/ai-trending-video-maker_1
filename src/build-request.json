@@ -1,0 +1,125 @@
+{
+  "kind": "build_request",
+  "title": "Continue fixing trending topics data fetching and improving AI video maker app",
+  "projectName": "AI Video Maker",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-17",
+      "text": "Implement a backend function to fetch live trending topics from YouTube API, storing results with platform identifier 'YouTube', topic text, hashtags array, viral keywords array, engagement metrics (views, likes, shares, comments), and fetch timestamp",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-trending-fetch"
+        ],
+        "quotes": [
+          "the trending topics page is empty .can you fix the fetching function to pull live data from you tube and google"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend function fetches live data from YouTube trending API",
+        "Trending topics are stored with platform set to 'YouTube'",
+        "Each topic includes hashtags array, keywords array, and engagement metrics",
+        "Function can be called periodically to refresh trending data"
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "text": "Implement a backend function to fetch live trending topics from Google Trends API, storing results with platform identifier 'Google Trends', topic text, hashtags array, viral keywords array, engagement metrics, and fetch timestamp",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-trending-fetch"
+        ],
+        "quotes": [
+          "the trending topics page is empty .can you fix the fetching function to pull live data from you tube and google"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend function fetches live data from Google Trends API",
+        "Trending topics are stored with platform set to 'Google Trends'",
+        "Each topic includes relevant hashtags and keywords",
+        "Function handles API rate limits and errors gracefully"
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "text": "Update the TrendingPage frontend component to display fetched trending topics from YouTube and Google Trends platforms, ensuring topics are visible and properly organized by platform filter tabs",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-trending-fetch"
+        ],
+        "quotes": [
+          "the trending topics page is empty"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Trending topics from YouTube and Google Trends are visible on the page",
+        "Topics display correctly under their respective platform filter tabs",
+        "Empty state is only shown when no data exists for selected platform",
+        "Loading states are shown while fetching data"
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "text": "Enhance the backend AI script generation function to generate scripts in Hindi language when Hindi language preference is selected, maintaining hook-driven storytelling structure with 30-60 second target duration",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-hindi-script"
+        ],
+        "quotes": [
+          "can you add a feature to generate a script in hindi for the trending topics it finds"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Script generation function accepts Hindi as a language parameter",
+        "Generated Hindi scripts follow natural Hindi grammar and vocabulary",
+        "Scripts maintain hook-driven structure with engaging opening lines",
+        "Script duration targets 30-60 seconds when read aloud in Hindi",
+        "Hindi scripts work seamlessly with existing voiceover integration"
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "text": "Update the VideoConfigurationPage frontend to enable Hindi language selection for script generation, ensuring the generated Hindi script is displayed correctly and can be edited before creating a video project",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-hindi-script"
+        ],
+        "quotes": [
+          "can you add a feature to generate a script in hindi for the trending topics it finds"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Language selection dropdown includes Hindi option",
+        "Generate script button triggers Hindi script generation when Hindi is selected",
+        "Generated Hindi text renders correctly with proper font support",
+        "Hindi script can be edited in the text area before project creation",
+        "Generated Hindi script persists when creating video project"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify Internet Identity authentication hooks or components in frontend/src/hooks/useInternetIdentity.ts or frontend/src/hooks/useInternetIdentity.tsx",
+    "Do not edit frontend/src/hooks/useActor.ts or frontend/src/main.tsx",
+    "Do not modify UI components in frontend/src/components/ui directory",
+    "Maintain single-actor architecture in backend/main.mo",
+    "Preserve existing data models and add fields only if necessary",
+    "Respect admin-only access control for trending topic creation functions"
+  ],
+  "nonGoals": [
+    "Integration with Instagram API or X/Twitter API for trending topics",
+    "Real-time WebSocket connections for live trending data",
+    "External database integration for trending topic storage",
+    "Third-party AI service integration for script generation",
+    "Multi-language support beyond Hindi and English",
+    "Video rendering or export functionality changes"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

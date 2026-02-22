@@ -1,0 +1,57 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Continue fixing trending topics data fetching and improving AI video maker app",
+  "requirements": [
+    {
+      "id": "REQ-19",
+      "summary": "Update the TrendingPage frontend component to display fetched trending topics from YouTube and Google Trends platforms, ensuring topics are visible and properly organized by platform filter tabs",
+      "acceptanceCriteria": [
+        "Trending topics from YouTube and Google Trends are visible on the page",
+        "Topics display correctly under their respective platform filter tabs",
+        "Empty state is only shown when no data exists for selected platform",
+        "Loading states are shown while fetching data"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/TrendingPage.tsx",
+          "operation": "modify",
+          "description": "Update the TrendingPage component to properly fetch and display trending topics from YouTube and Google Trends platforms. Ensure the platform filter tabs (YouTube, Instagram, X, Google Trends) correctly filter topics by platform. Add proper loading states while data is being fetched and show empty states only when no data exists for the selected platform. Verify the component correctly uses the useTrendingTopics hook to fetch filtered topics by platform and displays them using TrendingTopicCard components."
+        },
+        {
+          "path": "frontend/src/hooks/useTrendingTopics.ts",
+          "operation": "modify",
+          "description": "Review and update the useTrendingTopics hooks to ensure proper integration with backend trending topic fetching capabilities. Verify the useFilterTrendingTopicsByPlatform hook correctly calls the backend filterTrendingTopicsByPlatform method and handles Platform enum values (youtube, googleTrends, instagram, x). Ensure proper error handling and loading states are exposed to consuming components."
+        }
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "summary": "Update the VideoConfigurationPage frontend to enable Hindi language selection for script generation, ensuring the generated Hindi script is displayed correctly and can be edited before creating a video project",
+      "acceptanceCriteria": [
+        "Language selection dropdown includes Hindi option",
+        "Generate script button triggers Hindi script generation when Hindi is selected",
+        "Generated Hindi text renders correctly with proper font support",
+        "Hindi script can be edited in the text area before project creation",
+        "Generated Hindi script persists when creating video project"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/VideoConfigurationPage.tsx",
+          "operation": "modify",
+          "description": "Update the language selection dropdown to include Hindi as a language option (the backend uses Variant_hindi_both_english enum with hindi, english, and both values). Ensure the Generate Script button passes the selected Hindi language parameter to the backend generateScript method. Verify that generated Hindi scripts render correctly in the script text area with proper font support (add font-family CSS if needed for Devanagari script rendering). Ensure the script text area allows editing of Hindi text and that the edited Hindi script is properly passed to the createVideoProject mutation when creating a new video project."
+        },
+        {
+          "path": "frontend/src/hooks/useScriptGeneration.ts",
+          "operation": "modify",
+          "description": "Review the useScriptGeneration mutation hook to ensure it properly handles the Variant_hindi_both_english language parameter when calling the backend generateScript method. Verify the hook correctly passes all parameters (topic, language, duration, style) and returns the generated Script object with proper TypeScript types matching the backend interface."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add font-family declarations to support Hindi (Devanagari script) rendering. Import a web font that supports Devanagari characters (such as Noto Sans Devanagari from Google Fonts) and add CSS rules to ensure Hindi text displays correctly in text areas and throughout the application. Apply the font to relevant text input and display elements."
+        }
+      ]
+    }
+  ]
+}

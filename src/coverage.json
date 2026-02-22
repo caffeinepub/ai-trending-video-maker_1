@@ -1,0 +1,81 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-22T16:20:31.653Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 5,
+    "implemented": 1,
+    "items": [
+      {
+        "id": "REQ-17",
+        "summary": "Implement a backend function to fetch live trending topics from YouTube API, storing results with platform identifier 'YouTube', topic text, hashtags array, viral keywords array, engagement metrics (views, likes, shares, comments), and fetch timestamp",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-18",
+        "summary": "Implement a backend function to fetch live trending topics from Google Trends API, storing results with platform identifier 'Google Trends', topic text, hashtags array, viral keywords array, engagement metrics, and fetch timestamp",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-19",
+        "summary": "Update the TrendingPage frontend component to display fetched trending topics from YouTube and Google Trends platforms, ensuring topics are visible and properly organized by platform filter tabs",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/pages/TrendingPage.tsx",
+          "frontend/src/hooks/useTrendingTopics.ts"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-20",
+        "summary": "Enhance the backend AI script generation function to generate scripts in Hindi language when Hindi language preference is selected, maintaining hook-driven storytelling structure with 30-60 second target duration",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-21",
+        "summary": "Update the VideoConfigurationPage frontend to enable Hindi language selection for script generation, ensuring the generated Hindi script is displayed correctly and can be edited before creating a video project",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/VideoConfigurationPage.tsx",
+          "frontend/src/hooks/useScriptGeneration.ts",
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/VideoConfigurationPage.tsx",
+          "frontend/src/index.css"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/http-outcalls/outcall.mo",
+    "backend/main.mo",
+    "backend/migration.mo",
+    "build-request.json",
+    "build-template/README.md",
+    "caffeine.lock.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/index.css",
+    "frontend/src/pages/VideoConfigurationPage.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}
