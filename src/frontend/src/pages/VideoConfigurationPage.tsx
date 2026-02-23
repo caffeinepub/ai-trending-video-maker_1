@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import { useNavigate, useParams } from '@tanstack/react-router';
-import { useGetTrendingTopic } from '../hooks/useTrendingTopics';
+import { useState, useEffect } from 'react';
+import { useNavigate, useParams, useSearch } from '@tanstack/react-router';
 import { useGenerateScript } from '../hooks/useScriptGeneration';
 import { useCreateVideoProject } from '../hooks/useVideoProjectMutations';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -11,14 +10,30 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Separator } from '@/components/ui/separator';
 import { Textarea } from '@/components/ui/textarea';
 import { Sparkles, Wand2 } from 'lucide-react';
-import { Variant_hindi_both_english, Variant_dramatic_emotional, Variant_female_male, Variant_tiktok_youtubeShorts_instagramReels } from '../backend';
+import { Variant_hindi_both_english, Variant_dramatic_emotional, Variant_female_male, Variant_tiktok_youtubeShorts_instagramReels, Platform } from '../backend';
+
+interface TopicSearchParams {
+  topic?: string;
+  hashtags?: string;
+  keywords?: string;
+  platform?: Platform;
+}
 
 export default function VideoConfigurationPage() {
   const { topicId } = useParams({ from: '/configure/$topicId' });
+  const searchParams = useSearch({ from: '/configure/$topicId' }) as TopicSearchParams;
   const navigate = useNavigate();
-  const { data: topic, isLoading: topicLoading } = useGetTrendingTopic(topicId);
   const generateScript = useGenerateScript();
   const createProject = useCreateVideoProject();
+
+  // Extract topic data from URL search parameters
+  const topicData = searchParams.topic ? {
+    id: topicId,
+    topic: searchParams.topic,
+    hashtags: searchParams.hashtags ? searchParams.hashtags.split(',') : [],
+    keywords: searchParams.keywords ? searchParams.keywords.split(',') : [],
+    platform: searchParams.platform || Platform.youtube,
+  } : null;
 
   const [language, setLanguage] = useState<Variant_hindi_both_english>(Variant_hindi_both_english.both);
   const [style, setStyle] = useState<Variant_dramatic_emotional>(Variant_dramatic_emotional.emotional);
@@ -30,10 +45,10 @@ export default function VideoConfigurationPage() {
   const [editedMainContent, setEditedMainContent] = useState<string>('');
 
   const handleGenerateScript = async () => {
-    if (!topic) return;
+    if (!topicData) return;
     try {
       const script = await generateScript.mutateAsync({
-        topic: topic.topic,
+        topic: topicData.topic,
         language,
         duration: BigInt(duration),
         style,
@@ -47,7 +62,7 @@ export default function VideoConfigurationPage() {
   };
 
   const handleCreateProject = async () => {
-    if (!generatedScript || !topic) return;
+    if (!generatedScript || !topicData) return;
     try {
       const finalScript = {
         ...generatedScript,
@@ -55,8 +70,8 @@ export default function VideoConfigurationPage() {
         mainContent: editedMainContent,
       };
       const projectId = await createProject.mutateAsync({
-        title: `Video: ${topic.topic}`,
-        topicId: topic.id,
+        title: `Video: ${topicData.topic}`,
+        topicId: topicData.id,
         script: finalScript,
         stockVideoIds: ['stock-1', 'stock-2', 'stock-3'],
         musicId: 'music-1',
@@ -69,20 +84,7 @@ export default function VideoConfigurationPage() {
     }
   };
 
-  if (topicLoading) {
-    return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex items-center justify-center min-h-[400px]">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-            <p className="text-muted-foreground">Loading topic...</p>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (!topic) {
+  if (!topicData) {
     return (
       <div className="container mx-auto px-4 py-8">
         <Card>
@@ -101,7 +103,7 @@ export default function VideoConfigurationPage() {
     <div className="container mx-auto px-4 py-8 max-w-4xl">
       <div className="mb-8">
         <h1 className="text-4xl font-bold mb-2">Configure Your Video</h1>
-        <p className="text-muted-foreground">Customize settings for: {topic.topic}</p>
+        <p className="text-muted-foreground">Customizing settings for: {topicData.topic}</p>
       </div>
 
       <div className="grid gap-6">

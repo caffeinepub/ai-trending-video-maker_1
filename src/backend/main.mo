@@ -12,10 +12,10 @@ import AccessControl "authorization/access-control";
 import MixinAuthorization "authorization/MixinAuthorization";
 import MixinStorage "blob-storage/Mixin";
 import Storage "blob-storage/Storage";
-import Migration "migration";
+
 import OutCall "http-outcalls/outcall";
 
-(with migration = Migration.run)
+
 actor {
   // User system
   include MixinStorage();

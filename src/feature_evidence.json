@@ -2,11 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-videoconfigurationpage-frontend-to-enable-hindi-language-selection-for-script-generation-ensuring-the-generated-hindi-script-is-displayed-correctly-and-can-be-edited-before-creating-a-video-project",
-      "featureTitle": "Update the VideoConfigurationPage frontend to enable Hindi language selection for script generation, ensuring the generated Hindi script is displayed correctly and can be edited before creating a video project",
+      "featureId": "feature-update-the-trendingtopiccard-component-frontend-src-components-trendingtopiccard-tsx-to-properly-serialize-and-pass-the-complete-trending-topic-data-object-when-the-create-video-button-is-clicked-ensuring-the-navigation-to-videoconfigurationpage-includes-the-topic-id-title-hashtags-keywords-platform-and-engagement-metrics-as-url-parameters-or-navigation-state",
+      "featureTitle": "Update the TrendingTopicCard component (frontend/src/components/TrendingTopicCard.tsx) to properly serialize and pass the complete trending topic data object when the 'Create Video' button is clicked, ensuring the navigation to VideoConfigurationPage includes the topic ID, title, hashtags, keywords, platform, and engagement metrics as URL parameters or navigation state",
       "files": [
-        "frontend/src/index.css",
-        "frontend/src/pages/VideoConfigurationPage.tsx"
+        "frontend/src/components/TrendingTopicCard.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -19,7 +18,7 @@
         "http-outcalls@3.0.0"
       ],
       "testIds": [
-        "REQ-21"
+        "REQ-28"
       ],
       "confidence": "high"
     }

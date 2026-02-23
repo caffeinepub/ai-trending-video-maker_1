@@ -1,78 +1,54 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-22T16:20:31.653Z",
+  "generatedAt": "2026-02-22T18:19:04.231Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 5,
+    "total": 3,
     "implemented": 1,
     "items": [
       {
-        "id": "REQ-17",
-        "summary": "Implement a backend function to fetch live trending topics from YouTube API, storing results with platform identifier 'YouTube', topic text, hashtags array, viral keywords array, engagement metrics (views, likes, shares, comments), and fetch timestamp",
-        "status": "unknown",
-        "plannedFiles": [],
-        "matchedFiles": []
-      },
-      {
-        "id": "REQ-18",
-        "summary": "Implement a backend function to fetch live trending topics from Google Trends API, storing results with platform identifier 'Google Trends', topic text, hashtags array, viral keywords array, engagement metrics, and fetch timestamp",
-        "status": "unknown",
-        "plannedFiles": [],
-        "matchedFiles": []
-      },
-      {
-        "id": "REQ-19",
-        "summary": "Update the TrendingPage frontend component to display fetched trending topics from YouTube and Google Trends platforms, ensuring topics are visible and properly organized by platform filter tabs",
-        "status": "missing",
-        "plannedFiles": [
-          "frontend/src/pages/TrendingPage.tsx",
-          "frontend/src/hooks/useTrendingTopics.ts"
-        ],
-        "matchedFiles": []
-      },
-      {
-        "id": "REQ-20",
-        "summary": "Enhance the backend AI script generation function to generate scripts in Hindi language when Hindi language preference is selected, maintaining hook-driven storytelling structure with 30-60 second target duration",
-        "status": "unknown",
-        "plannedFiles": [],
-        "matchedFiles": []
-      },
-      {
-        "id": "REQ-21",
-        "summary": "Update the VideoConfigurationPage frontend to enable Hindi language selection for script generation, ensuring the generated Hindi script is displayed correctly and can be edited before creating a video project",
+        "id": "REQ-28",
+        "summary": "Update the TrendingTopicCard component (frontend/src/components/TrendingTopicCard.tsx) to properly serialize and pass the complete trending topic data object when the 'Create Video' button is clicked, ensuring the navigation to VideoConfigurationPage includes the topic ID, title, hashtags, keywords, platform, and engagement metrics as URL parameters or navigation state",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/VideoConfigurationPage.tsx",
-          "frontend/src/hooks/useScriptGeneration.ts",
-          "frontend/src/index.css"
+          "frontend/src/components/TrendingTopicCard.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/VideoConfigurationPage.tsx",
-          "frontend/src/index.css"
+          "frontend/src/components/TrendingTopicCard.tsx"
         ]
+      },
+      {
+        "id": "REQ-29",
+        "summary": "Verify that the VideoConfigurationPage component (frontend/src/pages/VideoConfigurationPage.tsx) correctly extracts and displays trending topic data from URL parameters or navigation state when arriving from TrendingPage, showing the topic title in the UI and pre-populating the script generation form",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/pages/VideoConfigurationPage.tsx",
+          "frontend/src/utils/urlParams.ts"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-30",
+        "summary": "Ensure the 'Generate Script' functionality on VideoConfigurationPage is properly triggered and working when users click the script generation button, displaying the generated script content in an editable textarea without navigation or initialization errors",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/pages/VideoConfigurationPage.tsx"
+        ],
+        "matchedFiles": []
       }
     ]
   },
   "changedFiles": [
-    "backend/http-outcalls/outcall.mo",
-    "backend/main.mo",
-    "backend/migration.mo",
     "build-request.json",
-    "build-template/README.md",
-    "caffeine.lock.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/backend.d.ts",
-    "frontend/src/backend.ts",
-    "frontend/src/declarations/backend.did.d.ts",
-    "frontend/src/declarations/backend.did.js",
-    "frontend/src/index.css",
-    "frontend/src/pages/VideoConfigurationPage.tsx",
+    "frontend/src/components/TrendingTopicCard.tsx",
+    "frontend/src/pages/TrendingPage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

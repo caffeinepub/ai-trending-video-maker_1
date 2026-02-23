@@ -26,8 +26,13 @@ const platformLabels: Record<Platform, string> = {
 export default function TrendingTopicCard({ topic, onSelect }: TrendingTopicCardProps) {
   const totalEngagement = Number(topic.metrics.likes + topic.metrics.shares + topic.metrics.comments + topic.metrics.views);
 
+  const handleCreateVideo = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    onSelect(topic.id);
+  };
+
   return (
-    <Card className="border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 cursor-pointer group" onClick={() => onSelect(topic.id)}>
+    <Card className="border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 group">
       <CardHeader>
         <div className="flex items-start justify-between gap-2 mb-2">
           <Badge className={platformColors[topic.platform]}>{platformLabels[topic.platform]}</Badge>
@@ -68,7 +73,11 @@ export default function TrendingTopicCard({ topic, onSelect }: TrendingTopicCard
             <span>{Number(topic.metrics.comments)}</span>
           </div>
         </div>
-        <Button size="sm" className="w-full group-hover:bg-primary group-hover:text-primary-foreground">
+        <Button 
+          size="sm" 
+          className="w-full group-hover:bg-primary group-hover:text-primary-foreground"
+          onClick={handleCreateVideo}
+        >
           Create Video
         </Button>
       </CardContent>

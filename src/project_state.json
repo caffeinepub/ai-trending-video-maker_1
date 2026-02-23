@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 5,
+  "projectStateVersion": 11,
   "summary": "AI-powered mobile video creation app that automatically generates short-form videos (Reels/Shorts/TikTok) from trending social media topics, with AI script generation, voiceover, auto-editing, and monetization features",
   "architectural_notes": [
     "Mobile app (iOS/Android)",
@@ -14,7 +14,7 @@
     "Ad network integration for free tier"
   ],
   "known_issues": [
-    "Trending topics page empty - fetching function not pulling live data from YouTube/Google"
+    "AI script generator not opening when clicking trending topics from TrendingPage"
   ],
   "isFixRequest": true,
   "existing_features": [
@@ -95,6 +95,46 @@
       "title": "Update the VideoConfigurationPage frontend to enable Hindi language selection for script generation, ensuring the generated Hindi script is displayed correctly and can be edited before creating a video project",
       "reqIds": [
         "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-hardcoded-mock-trending-topics-data-directly-in-the-trendingpage-component-frontend-src-pages-trendingpage-tsx-with-realistic-fields-including-topic-title-hashtags-array-viral-keywords-array-platform-source-youtube-instagram-x-google-trends-engagement-metrics-view-count-likes-shares-comments-trending-score-and-timestamp",
+      "title": "Add hardcoded mock trending topics data directly in the TrendingPage component (frontend/src/pages/TrendingPage.tsx) with realistic fields including topic title, hashtags array, viral keywords array, platform source (YouTube, Instagram, X, Google Trends), engagement metrics (view count, likes, shares, comments), trending score, and timestamp",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-trendingpage-component-to-use-the-hardcoded-mock-data-instead-of-the-usetrendingtopics-hook-removing-any-dependencies-on-backend-trending-topic-queries-that-are-currently-failing",
+      "title": "Update the TrendingPage component to use the hardcoded mock data instead of the useTrendingTopics hook, removing any dependencies on backend trending topic queries that are currently failing",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-hardcoded-trending-topics-rotate-through-diverse-categories-tech-entertainment-sports-news-lifestyle-fitness-finance-motivation-with-varied-engagement-metrics-to-simulate-realistic-trending-behavior",
+      "title": "Ensure the hardcoded trending topics rotate through diverse categories (tech, entertainment, sports, news, lifestyle, fitness, finance, motivation) with varied engagement metrics to simulate realistic trending behavior",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-videoconfigurationpage-component-frontend-src-pages-videoconfigurationpage-tsx-to-properly-receive-and-handle-trending-topic-data-from-navigation-state-or-url-parameters-displaying-the-topic-title-and-pre-populating-relevant-fields-without-showing-topic-not-found-errors",
+      "title": "Update the VideoConfigurationPage component (frontend/src/pages/VideoConfigurationPage.tsx) to properly receive and handle trending topic data from navigation state or URL parameters, displaying the topic title and pre-populating relevant fields without showing 'Topic not found' errors",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-trendingtopiccard-component-frontend-src-components-trendingtopiccard-tsx-to-properly-serialize-and-pass-the-complete-trending-topic-data-object-when-the-create-video-button-is-clicked-ensuring-the-navigation-to-videoconfigurationpage-includes-the-topic-id-title-hashtags-keywords-platform-and-engagement-metrics-as-url-parameters-or-navigation-state",
+      "title": "Update the TrendingTopicCard component (frontend/src/components/TrendingTopicCard.tsx) to properly serialize and pass the complete trending topic data object when the 'Create Video' button is clicked, ensuring the navigation to VideoConfigurationPage includes the topic ID, title, hashtags, keywords, platform, and engagement metrics as URL parameters or navigation state",
+      "reqIds": [
+        "REQ-28"
       ],
       "version": 1
     }
@@ -233,6 +273,38 @@
       "summary": "Enhance the backend AI script generation function to generate scripts in Hindi language when Hindi language preference is selected, maintaining hook-driven storytelling structure with 30-60 second target duration",
       "reqIds": [
         "REQ-20"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-20",
+      "summary": "Update the TrendingTopicCard component (frontend/src/components/TrendingTopicCard.tsx) to pass the complete trending topic data when navigating to the Video Configuration page, ensuring the topic ID, title, hashtags, and keywords are properly serialized in the navigation state or URL parameters",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-22",
+      "summary": "Ensure the route navigation between TrendingPage and VideoConfigurationPage in App.tsx properly handles topic data transfer using either route parameters or search params that work with the hardcoded mock trending topics data structure",
+      "reqIds": [
+        "REQ-27"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-24",
+      "summary": "Verify that the VideoConfigurationPage component (frontend/src/pages/VideoConfigurationPage.tsx) correctly extracts and displays trending topic data from URL parameters or navigation state when arriving from TrendingPage, showing the topic title in the UI and pre-populating the script generation form",
+      "reqIds": [
+        "REQ-29"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-25",
+      "summary": "Ensure the 'Generate Script' functionality on VideoConfigurationPage is properly triggered and working when users click the script generation button, displaying the generated script content in an editable textarea without navigation or initialization errors",
+      "reqIds": [
+        "REQ-30"
       ],
       "status": "pending"
     }
